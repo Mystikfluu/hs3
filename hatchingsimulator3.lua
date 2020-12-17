@@ -53,7 +53,7 @@ if(value > 50) then
 end
 if(value > 5000) then
   game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
-    Text = "If you have more than 5000 Clicks per wait you crash, setting it back to 25."; --The chat message
+    Text = "If you have more than 5000 Clicks per wait you might crash, setting it back to 25."; --The chat message
     Color = Color3.fromRGB(255, 0, 0); --Chat message color, defaults to white
     Font = Enum.Font.SourceSansBold; --Chat message font, defaults to SourceSansBold
     TextSize = 18 --Text size, defaults to 18
