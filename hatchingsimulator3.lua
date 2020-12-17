@@ -51,6 +51,15 @@ if(value > 50) then
     TextSize = 18 --Text size, defaults to 18
   });
 end
+if(value > 5000) then
+  game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+    Text = "If you have more than 5000 Clicks per wait you crash, setting it back to 25."; --The chat message
+    Color = Color3.fromRGB(255, 0, 0); --Chat message color, defaults to white
+    Font = Enum.Font.SourceSansBold; --Chat message font, defaults to SourceSansBold
+    TextSize = 18 --Text size, defaults to 18
+  });
+  value = 25;
+end
 _G.cps = value or 10
 end)
 clicking:Toggle("Auto-Clicker", function(toggle)
@@ -69,11 +78,18 @@ local candy = window:CreateFolder("Candy")
 candy:Toggle("Teleport Candy", function(toggle)
 spawn(function()
 _G.candytp = toggle
-local Chocolate2 = game.Workspace:FindFirstChild("Festive Land").Currency.Chocolate
-local Chocolate = game.Workspace:FindFirstChild("XMas Land").Currency.Chocolate
-local CandyBox = game.Workspace:FindFirstChild("XMas Land").Currency.CandyBox
-local Candy = game.Workspace:FindFirstChild("XMas Land").Currency.Candy
-local CandyBox2 = game.Workspace:FindFirstChild("Festive Land").Currency.CandyBox
+local XMas = game.Workspace:FindFirstChild("XMas Land")
+local Festive = game.Workspace:FindFirstChild("Festive Land")
+local Snow = game.Workspace:FindFirstChild("Snow Land")
+local Chocolate2 = Festive.Currency.Chocolate
+local CandyBox2 = Festive.Currency.CandyBox
+local Chocolate3 = Snow.Currency.Chocolate
+local CandyBox3 = Snow.Currency.CandyBox
+local Candy3 = Snow.Currency.Candy
+local Chocolate = XMas.Currency.Chocolate
+local CandyBox = XMas.Currency.CandyBox
+local Candy = XMas.Currency.Candy
+
 while wait() and _G.candytp do
 for i, v in pairs(Candy:GetChildren()) do
   v.Candy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -84,10 +100,21 @@ end
 for i, v in pairs(Chocolate:GetChildren()) do
   v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
+
 for i, v in pairs(CandyBox2:GetChildren()) do
   v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 for i, v in pairs(Chocolate2:GetChildren()) do
+  v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+
+for i, v in pairs(Candy3:GetChildren()) do
+  v.Candy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+for i, v in pairs(CandyBox3:GetChildren()) do
+  v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+for i, v in pairs(Chocolate3:GetChildren()) do
   v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 end
