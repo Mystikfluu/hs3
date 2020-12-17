@@ -100,20 +100,22 @@ end
 for i, v in pairs(Chocolate:GetChildren()) do
   v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
-
+wait()
 for i, v in pairs(CandyBox2:GetChildren()) do
   v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
 for i, v in pairs(Chocolate2:GetChildren()) do
   v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
-
+wait()
 for i, v in pairs(Candy3:GetChildren()) do
   v.Candy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
+wait()
 for i, v in pairs(CandyBox3:GetChildren()) do
   v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
+wait()
 for i, v in pairs(Chocolate3:GetChildren()) do
   v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 end
