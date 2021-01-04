@@ -116,11 +116,6 @@ local tokens = window:CreateFolder("Tokens")
 tokens:Toggle("Auto Obby",function(toggle)
 _G.autoobby = toggle
 spawn(function()
-while _G.autoobby do
-opengui()
-complete()
-wait()
-end
 coroutine.wrap(function()
     while wait(3) and _G.autoobby do
         if(game.Players.LocalPlayer.Character) then
@@ -129,6 +124,11 @@ coroutine.wrap(function()
     end
     coroutine.yield()
 end)
+while _G.autoobby do
+opengui()
+complete()
+wait()
+end
 end)
 end)
 --[[
