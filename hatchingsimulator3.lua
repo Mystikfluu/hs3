@@ -75,60 +75,65 @@ end
 end)
 end)
 function complete()
-  if(game.Players.LocalPlayer.Character == nil) then
-    return false
-  end
-  if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
-    return false
-  end
-  if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
-    return false
-  end
-  repeat
-    wait()
-  until iswindowactive()
-  repeat
-    if(game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") == nil) then return false end
-    local AP = game.Players.LocalPlayer.PlayerGui.Minigames.Frame.Obby.Play.AbsolutePosition
-    local X, Y = AP.X, AP.Y
-    mousemoveabs(X, Y)
-    mouse1click()
-    wait()
-    X, Y = 570, 670
-    mousemoveabs(X, Y)
-    mouse1click()
-    wait()
-  until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") == nil or _G.autoobby == false
-  wait(0.1)
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.ObbyIsland.FinishObby.CFrame
+if(game.Players.LocalPlayer.Character == nil) then
+return false
+end
+if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
+return false
+end
+if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
+return false
+end
+repeat
+wait()
+until iswindowactive()
+repeat
+if(game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") == nil) then return false end
+local AP = game.Players.LocalPlayer.PlayerGui.Minigames.Frame.Obby.Play.AbsolutePosition
+local X, Y = AP.X, AP.Y
+mousemoveabs(X, Y)
+mouse1click()
+wait()
+X, Y = 570, 670
+mousemoveabs(X, Y)
+mouse1click()
+wait()
+X, Y = 380, 450
+mousemoveabs(X, Y)
+mouse1click()
+wait()
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") == nil or _G.autoobby == false
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.ObbyIsland.FinishObby.CFrame
 end
 function opengui()
-  if(game.Players.LocalPlayer.Character == nil) then
-    return false
-  end
-  if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
-    return false
-  end
-  if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
-    return false
-  end
-  repeat
-    wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Main Island"].Shop.Minigames.HitPart.Hitbox.CFrame
-  until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") or _G.autoobby == false
-  return true
+if(game.Players.LocalPlayer.Character == nil) then
+return false
 end
+if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
+return false
+end
+if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
+return false
+end
+repeat
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Main Island"].Shop.Minigames.HitPart.Hitbox.CFrame
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Minigames") or _G.autoobby == false
+return true
+end
+
 local tokens = window:CreateFolder("Tokens")
-tokens:Toggle("Auto Obby",function(toggle)
+tokens:Toggle("Auto Obby", function(toggle)
 _G.autoobby = toggle
 spawn(function()
 coroutine.wrap(function()
-    while wait(3) and _G.autoobby do
-        if(game.Players.LocalPlayer.Character) then
-            game.Players.LocalPlayer.Character.Humanoid.Health = 0
-        end
-    end
-    coroutine.yield()
+while wait(3) and _G.autoobby do
+  if(game.Players.LocalPlayer.Character) then
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+  end
+end
+coroutine.yield()
 end)
 while _G.autoobby do
 opengui()
