@@ -78,6 +78,9 @@ function complete()
   if(game.Players.LocalPlayer.Character == nil) then
     return false
   end
+  if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
+    return false
+  end
   if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
     return false
   end
@@ -101,6 +104,9 @@ function complete()
 end
 function opengui()
   if(game.Players.LocalPlayer.Character == nil) then
+    return false
+  end
+  if(game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") == nil) then
     return false
   end
   if(game.Players.LocalPlayer.Character.Humanoid.Health == 0) then
