@@ -142,53 +142,27 @@ wait()
 end
 end)
 end)
---[[
-local candy = window:CreateFolder("Candy")
-candy:Toggle("Teleport Candy", function(toggle)
-spawn(function()
-_G.candytp = toggle
-local XMas = game.Workspace:FindFirstChild("XMas Land")
-local Festive = game.Workspace:FindFirstChild("Festive Land")
-local Snow = game.Workspace:FindFirstChild("Snow Land")
-local Chocolate2 = Festive.Currency.Chocolate
-local CandyBox2 = Festive.Currency.CandyBox
-local Chocolate3 = Snow.Currency.Chocolate
-local CandyBox3 = Snow.Currency.CandyBox
-local Candy3 = Snow.Currency.Candy
-local Chocolate = XMas.Currency.Chocolate
-local CandyBox = XMas.Currency.CandyBox
-local Candy = XMas.Currency.Candy
 
-while wait() and _G.candytp do
-for i, v in pairs(Candy:GetChildren()) do
-  v.Candy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-for i, v in pairs(CandyBox:GetChildren()) do
-  v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-for i, v in pairs(Chocolate:GetChildren()) do
-  v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-wait()
-for i, v in pairs(CandyBox2:GetChildren()) do
-  v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-for i, v in pairs(Chocolate2:GetChildren()) do
-  v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-wait()
-for i, v in pairs(Candy3:GetChildren()) do
-  v.Candy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-wait()
-for i, v in pairs(CandyBox3:GetChildren()) do
-  v.CandyBox.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-wait()
-for i, v in pairs(Chocolate3:GetChildren()) do
-  v.Chocolate.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-end
-end
+local MoonCoins = window:CreateFolder("MoonCoins")
+
+MoonCoins:Toggle("Teleport MoonCoins",function(toggle)
+
+  _G.MBTC = toggle
+
+  local Coins = game.Workspace.MoonCoins
+  local Boxes = game.Workspace.MoonBoxes
+
+  while wait() and _G.MBTC do
+    for i, v in pairs(Coins:GetChildren()) do
+      if(v.Name ~= "Collect") then
+        v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+      end
+    end
+    for i, v in pairs(Boxes:GetChildren()) do
+      if(v.Name ~= "Collect") then
+        v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+      end
+    end
+  end
+
 end)
-end)
---]]
